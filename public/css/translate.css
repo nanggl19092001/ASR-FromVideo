@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans&display=swap');
 
+/* 0A2647 */
+/* 144272
+205295
+2C74B3 */
 * {
     margin: 0;
     font-family: 'Public Sans', sans-serif;
@@ -7,10 +11,19 @@
 
 body {
     background-color: #0A2647;
-    display: flex;
+    display: flexbox;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100vw;
+}
+
+.main-container {
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button {
@@ -18,44 +31,67 @@ button {
     border: none;
     padding: 1rem 1rem 1rem 1rem;
     font-weight:900;
+    margin: auto
 }
 
-@keyframes button-hover {
-    from {
-        width: 0%;
-    }
-
-    to {
-        width: 100%;
-    }
+.button-container {
+    display: flex;
 }
 
-.button-hover-filter-start {
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    animation-name: button-hover;
-    animation-duration: 1s;
-}
-
-.button-hover-filter {
-    background-color: #3d80cc;
-    mix-blend-mode: color;
+form {
+    display: flex;
+    justify-content: center;
 }
 
 .file-input {
-    width: 100px;
+    width: 150px;
     border: 1px solid #ccc;
     display: block;
     padding: 6px 12px;
     cursor: pointer;
-    height: 100px;
+    background-color: #ccc;
+    border: solid black 2px;
+    border-radius: 1rem;
+}
+
+.file-input:hover {
+    background-color: antiquewhite;
+}
+
+.file-input img{
+    width: 150px;
+    height: 150px;
 }
 
 .file-input-ondrag {
-    background-color: red;
+    background-color: antiquewhite;
 }
 
 input[type="file"] {
     display: none;
+}
+
+.text-log {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.text-log-notification {
+    color: white;
+    border: #2C74B3 solid 4px;
+    background-color: #0a4883;
+}
+
+.text-log-succeed {
+    color: rgb(6, 66, 0);
+    border: #008807 solid 4px;
+    background-color: #85be83;
+}
+
+.text-log-error {
+    color: rgb(56, 0, 0);
+    border: #fd4e2f solid 4px;
+    background-color: #ffb0b0;
 }

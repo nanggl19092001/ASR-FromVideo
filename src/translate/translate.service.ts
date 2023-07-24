@@ -4,7 +4,7 @@ import HuggingFaceUtils from "src/utils/huggingface-utils";
 
 @Injectable({})
 export default class TranslateService {
-    translate(file: Express.Multer.File | Buffer): Promise<AutomaticSpeechRecognitionOutput>{
+    translate(file: any): any{
         return HuggingFaceUtils.getInstance().automaticSpeechRecognition(file);
     }
 }

@@ -9,16 +9,24 @@
 </head>
 <body>
     <div class="main-container">
-        <form>
-            <label for="file" class="file-input"></label>
-            <input type="file" id="file">
-        </form>
-        <div class="button-container">
-            <button id="submitFileBtn">TRANSLATE</button>
-            <div id="submitBtnFilter" class="button-hover-filter"></div>
-        </div>
         <div>
-            <p id="outputText"></p>
+            <form>
+                <label for="file" class="file-input">
+                    <img src="/assets/image/upload.png" id="file-input-image" alt="">
+                </label>
+                <input type="file" id="file">
+            </form>
+            <div class="button-container">
+                <button id="submitFileBtn">TRANSLATE</button>
+                <div id="submitBtnFilter" class="button-hover-filter"></div>
+            </div>
+            <div>
+                <p id="outputText"></p>
+            </div>
+
+            <div class="text-log text-log-succeed">
+                Some text
+            </div>
         </div>
     </div>
 </body>
