@@ -18,10 +18,11 @@ export default class HuggingFaceUtils {
         return this.instance;
     }
 
-    async automaticSpeechRecognition() {
+    async automaticSpeechRecognition(file) {
+        const buffer = file || readFileSync(path.join(__dirname, "../../assets/audio/common_voice_vi_21833254.mp3"))
         return await this.hf.automaticSpeechRecognition({
             model: "NgVN/whisper-small-vi",
-            data: readFileSync(path.join(__dirname, "../../assets/audio/common_voice_vi_21833254.mp3"))
+            data: buffer
         });
     }
 
