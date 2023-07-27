@@ -1,20 +1,26 @@
 //APIs
 document.getElementById('submitFileBtn').addEventListener('click', (e) => {
     e.preventDefault();
-    const file = document.getElementById('file').files[0];
+    
+    const files = document.getElementById('file').files;
+
+    if(!files[0]){
+        return displayTextLog('text-log-error', 'No file selected')
+    }
     
     let formData = new FormData();
-    formData.append('file', file);
+    formData.append('file', files[0]);
 
-    document.getElementById('outputText').innerHTML = 'Translating ... ';
+    displayTextLog('text-log-notification', 'Translating ... ');
 
     fetch('/translate', {
         method: 'POST',
         body: formData
     }).then(res => res.json())
     .then(res => {
-        document.getElementById('outputText').innerHTML = res.text;
-    });
+        files.pop();
+        return displayTextLog('text-log-succeed', res.text)
+    })
 })
 
 //Events handlers
