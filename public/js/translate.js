@@ -11,15 +11,14 @@ document.getElementById('submitFileBtn').addEventListener('click', (e) => {
     let formData = new FormData();
     formData.append('file', files[0]);
 
-    displayTextLog('text-log-notification', 'Translating ... ');
+    document.getElementById("outputText").innerHTML = "Translating ...";
 
     fetch('/translate', {
         method: 'POST',
         body: formData
     }).then(res => res.json())
     .then(res => {
-        files.pop();
-        return displayTextLog('text-log-succeed', res.text)
+        document.getElementById("outputText").innerHTML = res.text;
     })
 })
 
@@ -44,7 +43,3 @@ fileInput.addEventListener("drop", (e) => {
 })
 
 let submitBtn = document.getElementById('submitFileBtn');
-let submitBtnFilter = document.getElementById('submitBtnFilter');
-submitBtn.addEventListener("mouseover", (e) => {
-    submitBtnFilter.classList.add('button-hover-filter-start');
-})
